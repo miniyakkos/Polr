@@ -1,3 +1,9 @@
+/*purple #6D536C
+gray #9A9CA6
+light blue #C7D0DB
+light gray/white #E6EDF3
+dark brown #3F3634*/
+
 html {
   height: 100%;
 }
@@ -8,6 +14,40 @@ body {
   padding: 0;
 }
 
+.credentials {
+  font-family: 'Syncopate', sans-serif;
+  text-align: center;
+  color: #6D536C;
+  font-size: 2em;
+  margin: 0;
+}
+
+.signup {
+  padding-top: 15%;
+}
+
+.forms {
+  text-align: center;
+  padding: 1%;
+  margin: 1%;
+}
+
+.error {
+  font-size: 1em;
+  font-family: sans-serif;
+  text-align: center;
+  color: red;
+  padding-bottom: 1%;
+}
+
+.main {
+  height: 100%;
+  width: 100%;
+  background-image: url(https://download.unsplash.com/photo-1414541944151-2f3ec1cfd87d);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
 #map-canvas {
   margin: auto;
   height: 50%;
@@ -16,8 +56,10 @@ body {
 
 h1.header {
   margin: auto;
-  font-family: sans-serif;
+  font-family: 'Syncopate', sans-serif;
   text-align: center;
-  color: blue;
-  padding: 3% ;
+  color: #6D536C;
+  font-size: 5em;
+  font-weight: bolder;
+  padding-top: 10%;
 }

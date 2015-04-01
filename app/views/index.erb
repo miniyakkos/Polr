@@ -1,23 +1,26 @@
-<h1 class="header">Polr: Path of Least Resistance</h1>
+<div class="main">
+  <p class="credentials signup">Sign Up</p>
+<div class="forms">
+  <form action="/signup" method="post">
+    <input type="text" name="username">
+    <br/>
+    <input type="password" name="password">
+    <br/>
+    <input class="button" type="submit" value="Sign Up!">
+  </form>
+</div>
 
-<div id="map-canvas"></div>
+<div class="error"><%= @error %></div>
+<p class="credentials">Log In</p>
+<div class="forms">
+  <form action="/login" method="post">
+    <input type="text" name="username">
+    <br/>
+    <input type="password" name="password">
+    <br/>
+    <input class="button" type="submit" value="Login">
+  </form>
+</div>
+<h1 class="header">Polr</h1>
+</div>
 
-<div>
-<strong>Start: </strong>
-<select id="start">
-  <option value="penn station, new york, ny">Penn Station</option>
-  <option value="grand central station, new york, ny">Grand Central Station</option>
-  <option value="625 8th Avenue New York NY 10018">Port Authority Bus Terminal</option>
-  <option value="staten island ferry terminal, new york, ny">Staten Island Ferry Terminal</option>
-  <option value="101 E 125th Street, New York, NY">Harlem - 125th St Station</option>
-</select>
-<strong>End: </strong>
-<select id="end" onchange="calcRoute();">
-  <option value="260 Broadway New York NY 10007">City Hall</option>
-  <option value="W 49th St & 5th Ave, New York, NY 10020">Rockefeller Center</option>
-  <option value="moma, New York, NY">MOMA</option>
-  <option value="350 5th Ave, New York, NY, 10118">Empire State Building</option>
-  <option value="253 West 125th Street, New York, NY">Apollo Theatre</option>
-  <option value="1 Wall St, New York, NY">Wall St</option>
-</select>
-<div>
