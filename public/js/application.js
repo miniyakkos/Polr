@@ -1,50 +1,36 @@
 $(document).ready(function() {
-
+ initialize();
+ $(".route").on("click", calcRoute)
 });
-var directionsDisplay;
-var directionsService;
-var map;
-var stepDisplay;
 
+var directionsDisplay;
+var directionsService = new google.maps.DirectionsService();
+var map;
 
 function initialize() {
-  directionsService = new google.maps.DirectionsService();
+  directionsDisplay = new google.maps.DirectionsRenderer();
   var mapOptions = {
     zoom: 12,
     center: new google.maps.LatLng(37.7833, -122.4167)
-  };
-  map = new google.maps.Map(document.getElementById('map-canvas'),
-      mapOptions);
-  var rendererOptions = {
-    map: map
-  };
-  directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);
-  stepDisplay = new google.maps.InfoWindow();
-};
-
-  function loadScript() {
-    var script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = 'https://maps.googleapis.com/maps/api/js?libraries=drawing' +
-        '&callback=initialize';
-    document.body.appendChild(script);
-  };
-
-
-window.onload = loadScript;
+  }
+  map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+  directionsDisplay.setMap(map);
+  directionsDisplay.setPanel(document.getElementById("directionsPanel"));
+}
 
 function calcRoute() {
-  var start = document.getElementById("start").value;
-  var end = document.getElementById("end").value;
+  var start = document.getElementById("origin").value;
+  var end = document.getElementById("destination").value;
   var request = {
-    origin: start,
-    destination: end,
+    origin:start,
+    destination:end,
     travelMode: google.maps.TravelMode.WALKING
   };
-  directionsService.route(request, function(result, status) {
+  directionsService.route(request, function(response, status) {
     if (status == google.maps.DirectionsStatus.OK) {
-      directionsDisplay.setDirections(result);
+      directionsDisplay.setDirections(response);
     }
   });
-};
+}
+
 
