@@ -22,8 +22,8 @@ function calcRoute() {
   var start = document.getElementById("origin").value;
   var end = document.getElementById("destination").value;
   var request = {
-    origin:start,
-    destination:end,
+    origin: start,
+    destination: end,
     travelMode: google.maps.TravelMode.WALKING
   };
   directionsService.route(request, function(response, status) {

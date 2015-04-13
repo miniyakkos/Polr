@@ -19,7 +19,7 @@ post '/login' do
     session[:user_id] = @user.id
     redirect '/map'
   else
-    @error = "Email or password was wrong"
+    @error = "Wrong email or password"
     erb :index
   end
 end

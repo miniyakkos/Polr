@@ -3,6 +3,7 @@ class CreateGeocode < ActiveRecord::Migration
     create_table :geocodes do |t|
       t.string :latitude
       t.string :longitude
+      t.string :name
       t.belongs_to :user
 
       t.timestamps
