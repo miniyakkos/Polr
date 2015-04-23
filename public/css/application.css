@@ -63,3 +63,8 @@ h1.header {
   font-weight: bolder;
   padding-top: 10%;
 }
+
+#elevation-chart {
+  display: block;
+  text-align: center;
+}

@@ -1,21 +1,20 @@
 $(document).ready(function() {
   initialize();
-  $(".route").on("click", function() {
-    calcRoute();
-    drawPath();
-  });
+  $(".route").on("click", calcRoute);
 });
 
 var directionsDisplay;
-var directionsService = new google.maps.DirectionsService();
+var directionsService;
 var map;
 var pointArray;
-var elevator = new google.maps.ElevationService();
+var elevator;
 var chart;
-google.load("visualization", "1.0", {packages: ["columnchart"]});
+google.load("visualization", "1.0", { packages: ["columnchart"] });
 
 function initialize() {
+  elevator = new google.maps.ElevationService();
   directionsDisplay = new google.maps.DirectionsRenderer();
+  directionsService = new google.maps.DirectionsService();
   var mapOptions = {
     zoom: 12,
     center: new google.maps.LatLng(37.7833, -122.4167)
@@ -36,15 +35,14 @@ function calcRoute() {
   directionsService.route(request, function(response, status) {
     if (status == google.maps.DirectionsStatus.OK) {
       directionsDisplay.setDirections(response);
-      pointArray = response.routes[0].overview_path
+      pointArray = response.routes[0].overview_path;
+      drawPath();
     }
   });
-  debugger
 };
 
 function drawPath() {
   chart = new google.visualization.ColumnChart(document.getElementById('elevation_chart'));
-  debugger
   var pathRequest = {
     'path': pointArray,
     'samples': 50
@@ -65,7 +63,6 @@ function plotElevation(results, status) {
     for (var i = 0; i < results.length; i++) {
       data.addRow(['', elevations[i].elevation]);
     }
-    document.getElementById('elevation_chart').style.display = 'block';
     chart.draw(data, {
       width: 640,
       height: 200,
@@ -75,5 +72,3 @@ function plotElevation(results, status) {
   }
 }
 
-// 2085 ala wai blvd honolulu hi 96815
-// 900 fort street mall honolulu hi 96813
