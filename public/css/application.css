@@ -68,3 +68,9 @@ h1.header {
   display: block;
   text-align: center;
 }
+
+.addresses {
+  margin: auto;
+  text-align: center;
+  padding: 2%;
+}

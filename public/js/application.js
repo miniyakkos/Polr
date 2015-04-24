@@ -1,6 +1,6 @@
 $(document).ready(function() {
   initialize();
-  $(".route").on("click", calcRoute);
+  $(".add-form").on("submit", calcRoute);
 });
 
 var directionsDisplay;
@@ -24,7 +24,8 @@ function initialize() {
   directionsDisplay.setPanel(document.getElementById("directionsPanel"));
 };
 
-function calcRoute() {
+function calcRoute(event) {
+  event.preventDefault();
   var start = document.getElementById("origin").value;
   var end = document.getElementById("destination").value;
   var request = {
